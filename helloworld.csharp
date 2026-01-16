@@ -1,0 +1,15 @@
+Console.WriteLine("hello world!");
+
+string name = "Kush";
+int age = 20;
+bool leaning = true;
+
+Console.WriteLine($"Name: {name}");
+Console.WriteLine($"Age: {age}");
+Console.WriteLine($"Leaning C#: {leaning}");
+
+if (age >= 20){
+	Console.WriteLine("Adult mode activated!")
+} else {
+	Console.WriteLine("Young blood!!!")
+}

@@ -13,3 +13,14 @@ if (age >= 20){
 } else {
 	Console.WriteLine("Young blood!!!")
 }
+
+
+class BankAcc
+{
+	public static void CalcInterest()
+	{
+		Console.WriteLine("Enter amount to calculate interest: ");
+	}
+}
+
+BankAcc.CalcInterest();

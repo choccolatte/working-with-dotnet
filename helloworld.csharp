@@ -19,8 +19,43 @@ class BankAcc
 {
 	public static void CalcInterest()
 	{
-		Console.WriteLine("Enter amount to calculate interest: ");
+		Console.WriteLine("Enter amount: ");
 	}
 }
 
 BankAcc.CalcInterest();
+
+// using a simple logic
+
+int num = 15;
+
+if (num > 10)
+{
+	Console.WriteLine("Num big enough.");
+} else if (num > 5) {
+	Console.WriteLine("Num is mid.");
+} else {
+	Console.WriteLine("Small num.");
+}
+
+// for loops
+
+for (int i = 1; i <= 5; i++){
+	Console.WriteLine($"Count: {i}");
+}
+
+// while loop
+int i  = 1;
+while (i <= 50){
+	Console.WriteLine($"While counts: {i}");
+	i++;
+}
+
+
+// printing a list of numbers - if counting - FOR. If waiting - WHILE
+int i = 1;
+while (i <= 5){
+	Console.WriteLine($"{i}");
+	i++;
+}
+Console.WriteLine("Done");

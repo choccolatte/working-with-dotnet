@@ -59,3 +59,42 @@ while (i <= 5){
 	i++;
 }
 Console.WriteLine("Done");
+
+// methods are just named, reusable piece of thinking 
+static void Greet()
+{
+	Console.WriteLine("Hello!");
+}
+
+Greet();
+
+// methods with inputs
+static void GreetPerson(name)
+{
+	Console.WriteLine($"Hello! {name}");
+}
+
+Greet("John");
+
+
+// methods returning values
+static int Add(int a, int b)
+{
+	return a + b;
+}
+
+int result = Add(10, 20);
+Console.WriteLine(result);
+
+
+// grade calculator
+static string GetGrade(int marks)
+{
+	if(marks >= 90) return "A";
+	else if (marks >= 75) return "B";
+	else if (marks >= 60) return "C"; 
+	else return "D";
+}
+
+string res = GetGrade(85);
+Console.WriteLine(res);

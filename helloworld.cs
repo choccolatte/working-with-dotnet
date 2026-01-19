@@ -69,7 +69,7 @@ static void Greet()
 Greet();
 
 // methods with inputs
-static void GreetPerson(name)
+static void GreetPerson(string name)
 {
 	Console.WriteLine($"Hello! {name}");
 }
@@ -98,3 +98,23 @@ static string GetGrade(int marks)
 
 string res = GetGrade(85);
 Console.WriteLine(res);
+
+
+// combining methods + loops -> printing grades for multiple students
+
+static string GetGradeNew(int marks)
+{
+	if (marks >= 90) return "A";
+	else if (marks >= 75) return "B";
+	else if (marks >= 60) return "C";
+	else if (marks >= 40) return "D";
+	else return "F";
+}
+
+int[] markList = {95, 85, 65, 33, 20, 40, 55, 99};
+
+for (int i = 0; i < markList.Length; i++)
+{
+	string grade = GetGradeNew(markList[i]);
+	Console.WriteLine($"Student's Marks: {markList[i]}, Student's Grade: {grade}");
+}

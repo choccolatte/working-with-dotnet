@@ -12,15 +12,33 @@ static string GetGradeNew1(int marks)
 	else return "F";
 }
 
+int stdNo = 0;
+int passMarks = 40;
+int stdPassed = 0;
+
 // a loop for subjects/array of marks
 // looping through marks array
-for (int i = 0; i <= marks.Length; i++)
+for (int i = 0; i < marks.Length; i++)
 {
 	string gradeStd = GetGradeNew1(marks[i]);
 	Console.WriteLine($"Student's marks: {marks[i]}, Student's grde: {gradeStd}");
+
+	// adding to students
+	stdNo++;
+
+	// no. of stuents passed
+	if(marks < passMarks)
+	{
+		stdPassed++;		
+	}
 }
 
 Console.WriteLine("Finished grading!");
 
+// counting students
+Console.WriteLine($"No. of students: {stdNo}");
+
 // another loop to count how many A/B/C/D grades there
 
+// counting how many passed
+Console.WriteLine($"No. of Students passed: {stdPassed}");

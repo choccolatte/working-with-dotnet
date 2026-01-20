@@ -118,3 +118,37 @@ for (int i = 0; i < markList.Length; i++)
 	string grade = GetGradeNew(markList[i]);
 	Console.WriteLine($"Student's Marks: {markList[i]}, Student's Grade: {grade}");
 }
+
+
+// array deep dive
+// they hold multiple values of the same type
+// here, index starts at 0
+// scores.Length - tells us how many items are there
+
+int[] scores = { 88, 92, 76, 61, 45 };
+
+// looping pattern
+for (int i = 0; i < scores.Length; i++)
+{
+	Console.WriteLine(scores[i]);
+}
+
+// student grade report
+int[] marks = {100, 23, 34, 56, 23, 86, 76, 54, 43, 98, 87, 98, 100};
+
+static string GetGradeNew1(int marks)
+{
+	if(marks >= 90) return "A+";
+	else if(marks >= 85) return "A";
+	else if(marks >= 65) return "B";
+	else if(marks >= 55) return "C";
+	else if(marks >= 40) return "D";
+	else return "F";
+}
+
+// looping through marks array
+for (int i = 0; i <= marks.Length; i++)
+{
+	string gradeStd = GetGradeNew1(marks[i]);
+	Console.WriteLine($"Student's marks: {marks[i]}, Student's grde: {gradeStd}");
+}

@@ -21,13 +21,13 @@ int stdPassed = 0;
 for (int i = 0; i < marks.Length; i++)
 {
 	string gradeStd = GetGradeNew1(marks[i]);
-	Console.WriteLine($"Student's marks: {marks[i]}, Student's grde: {gradeStd}");
+	Console.WriteLine($"Student's marks: {marks[i]}, Student's grade: {gradeStd}");
 
 	// adding to students
 	stdNo++;
 
 	// no. of stuents passed
-	if(marks < passMarks)
+	if(marks > passMarks)
 	{
 		stdPassed++;		
 	}

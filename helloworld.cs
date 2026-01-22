@@ -152,3 +152,20 @@ for (int i = 0; i <= marks.Length; i++)
 	string gradeStd = GetGradeNew1(marks[i]);
 	Console.WriteLine($"Student's marks: {marks[i]}, Student's grde: {gradeStd}");
 }
+
+
+// dictionary
+Dictionary<string, int> gradeCounts = new Dictionary<string, int>();
+
+gradeCounts["A+"] = 0;
+gradeCounts["A"] = 0;
+gradeCounts["B"] = 0;
+gradeCounts["C"] = 0;
+gradeCounts["D"] = 0;
+gradeCounts["F"] = 0;
+
+string grade  = GetGrade(mark);
+
+gradeCounts[grade]++;
+
+in

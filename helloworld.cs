@@ -184,3 +184,50 @@ Console.WriteLine(x > y); // false
 Console.WriteLine(!(x > y)); // true coz of NOT - inversion
 
 
+// while loop - sued when waiting
+int i = 0;
+while(i <=10)//while(condition)
+{
+	Console.WriteLine(i); // code block to execute
+	i++;
+
+	if(i == 5)
+	{
+		break;
+	}
+}
+
+// do while loop
+int i = 0;
+do
+{
+	Console.WriteLine(i);
+	i++;
+}
+while(i < 10);
+
+
+// for loop - used when counting + nested loop
+for(int i = 0; i<=10; i++)
+{
+	Console.WriteLine("Outer: " + i);
+
+	// inner loop
+	for (int j = 0; j <= i; j++)
+	{
+		Console.WriteLine("Inner: " + j);
+
+		if(i == 5)
+		{
+			break;
+		}
+	}
+}
+
+
+// foreach - exclusively for array
+string[] name = {"John", "Doe", "Jay", "Kush", "Rody"};
+foreach(string i in name)
+{
+	Console.WriteLine(i);
+}

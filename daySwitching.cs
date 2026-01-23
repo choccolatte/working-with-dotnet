@@ -10,5 +10,6 @@ switch (day)
 	case 4: Console.WriteLine("Thursday"); break;
 	case 5: Console.WriteLine("Friday"); break;
 	case 6: Console.WriteLine("Satday"); break;
-	case 7: Console.WriteLine("Sunday"); break; // default case
+	case 7: Console.WriteLine("Sunday"); break;
+	default: Console.WriteLine("Enter a valid day between 1-7!"); break; // default case
 }

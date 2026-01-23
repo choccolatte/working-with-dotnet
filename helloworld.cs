@@ -277,3 +277,27 @@ foreach(int i in nums4)
 // sorting arrays
 Array.Sort(nums4);
 Console.WriteLine(nums4);
+
+
+// multidimensional arrays - 2D array
+int[,] nums2d = {{1, 2, 4}, {9, 8, 6}};
+Console.WriteLine(nums2d[0, 2]);
+
+// changing 3rd element of 2nd array
+nums2d[1, 2] = 99;
+Console.WriteLine(nums2d[1, 2]);
+
+// looping through a multidimensional arrays - 2D array
+foreach(int i in nums2d)
+{
+	Console.WriteLine(i);
+}
+
+//or
+for(int i = 0; i < nums2d.GetLength(0); i++)
+{
+	for(int j = 0; j<nums2d.GetLength(1); j++)
+	{
+		Console.WriteLine(nums2d[i, j]);
+	}
+}

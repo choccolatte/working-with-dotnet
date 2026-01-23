@@ -168,4 +168,19 @@ string grade  = GetGrade(mark);
 
 gradeCounts[grade]++;
 
-in
+
+// using substring
+string fulName = "John Doe";
+int charPos = fulName.IndexOf("D");
+string lName = fulName.Substring(charPos);
+Console.WriteLine(lName); // Doe
+Console.WriteLine(charPos); // 5
+
+
+// testing boolean exp
+int x = 9;
+int y = 90;
+Console.WriteLine(x > y); // false
+Console.WriteLine(!(x > y)); // true coz of NOT - inversion
+
+

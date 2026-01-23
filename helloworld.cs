@@ -231,3 +231,49 @@ foreach(string i in name)
 {
 	Console.WriteLine(i);
 }
+
+
+// arrays in C#
+int[] nums = {1, 22, 34, 54, 32, 76, 78, 98}; // {} - array literal
+
+// accessing elements in arry
+// int val = nums[5];
+nums[5] = 96;
+Console.WriteLine(val);
+
+Console.WriteLine(nums.Length);
+
+
+// other ways to create an array - using new keyword
+int[] num1 = new int[5]; //this created an array of size 5 - we can append teh values later. 
+
+// other ways to create an array - using new
+int[] num2 = new int[3] {1, 3, 5}; // this created an array of size 3 and aded the values there only.
+
+// other ways to create an array - using new
+int[] num3 = new int[] {1, 3, 4,  6, 7, 89, 9}; // this created an array of free size but we added the values still
+
+// other ways to create an array - without using new keyword and without specifyng size
+int[] num4 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+
+// Note that, if you create the array and initialize it later, always use teh new keyword for it.
+int[] num5; // defining the array
+num5 = new int[] {1, 2, 3, 4, 5}; // adding values to it using new keyword
+
+
+// looping through arrays
+for(int i = 0; i<nums4.Length; i++)
+{
+	Console.WriteLine(nums[i]);
+}
+
+foreach(int i in nums4)
+{
+	Console.WriteLine(i);
+}
+
+
+// sorting arrays
+Array.Sort(nums4);
+Console.WriteLine(nums4);

@@ -301,3 +301,36 @@ for(int i = 0; i < nums2d.GetLength(0); i++)
 		Console.WriteLine(nums2d[i, j]);
 	}
 }
+
+
+// classes and objects - if fruit is a class, then apple, banana, ananas are objects of fruit class - in other words, classes are template for objects, and an object is an instance of a class.
+
+// creating a class
+class House
+{
+	public string color = "Red";
+	publicint doors = 10;
+	public int windows = 20;
+	public int rooms = 8;
+	public string owner = "John Doe";
+
+	public string Owner(string name)
+	{
+		return "Owner of this house is: " + name;
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		House house = new House();
+		Console.WriteLine(house.color);
+
+		string houseOwner = House.Owner("Jill Doe");
+		Console.WriteLine(houseOwner);
+	}
+}
+
+
+

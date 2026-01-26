@@ -333,4 +333,77 @@ class Program
 }
 
 
+// getGrade skeleton
+// get a dict and add grade counters to 0
+Dictionary<string, int> gradeCounts = new Dictionary<string, int>
+{
+	{"A", 0},
+	{"B", 0},
+	{"C", 0},
+	{"D", 0},
+	{"F", 0}
+};
 
+// define marks
+int[] marks = {54, 43, 65, 76, 87, 98, 89, 23, 34};
+
+
+// loop for marks and grade them and store them into gradeCount dict
+foreach(int mark in marks)
+{
+	string grade = GetGrade(mark);
+	gradeCounts[grade]++;
+}
+
+
+// GetGrade function
+// input
+// output
+// steps
+
+class Program
+{
+	public static string GetGrade(int marks)
+	{
+		if(marks > 95) return "A+";
+		else if(marks >= 90) return "A";
+		else if(marks >= 80) return "B";
+		else if(marks >= 65) return "C";
+		else if(marks >= 50) return "D";
+		else return "F";
+	}
+
+	public static void Main(string[] args)
+	{
+		Dictionary<string, int> gradeDict = new Dictionary<string, int>
+		{
+			{"A+" : 0},
+			{"A" : 0},
+			{"B" : 0},
+			{"C" : 0},
+			{"D" : 0},
+			{"F" : 0},
+		};
+
+		int[] marks = {23, 34, 45, 56, 67, 78, 89, 98, 97, 46, 21, 24};
+
+		// looping through marks and incrementing dict
+		foreach(int mark in marks)
+			{
+				string gottenGrade = GetGrade(mark);
+				if (gradeDict.ContainsKey(gottenGrade))
+				{
+					gradeDict[gottenGrade]++;
+				}
+
+				Console.WriteLine($"Student's marks: {mark}, Student's grade: {gottenGrade}");
+			}
+
+		Console.WriteLine("Finished grading!");
+
+		foreach (var kvp in gradeDict)
+		{
+			Console.WriteLine($"{kvp.Key}:{kvp.Value}");
+		}
+	}
+}

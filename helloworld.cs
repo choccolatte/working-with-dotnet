@@ -407,3 +407,80 @@ class Program
 		}
 	}
 }
+
+
+// class members
+class MyCls
+{
+	// field member
+	string color = "red";
+	int year = 2026;
+
+	// method member
+	public void MyMet()
+	{
+		Console.WriteLine($"{color}:{year}");
+	}
+}
+
+// static = exists before objects
+// instance = exists because of objects
+// Main = entry point → must be static
+
+// class = blueprint
+// constructor = setup crew
+// instance = finished house ready to live in
+
+
+// Constructors = different entry doors
+// Object = built once
+// Fields = set once
+// Overloading ≠ overwriting
+// Chaining = clean & safe
+// constructors - special method used to initialize objects
+
+
+// Constructors = doors
+// this(...) = redirect to another door
+// Only one door actually builds the object
+
+class Car2
+{
+	public string Model; // creates a field - initializing
+
+	public Car2(string model){ // class constructor for car2 class - notice no return type - not even void
+		Model = model; // set the initial value for field - value assigning
+	}
+
+	static void Main(string[] args)
+	{
+		Car2 Ford = new Car2("Mustang"); // creates an object of the Car2 class - this will also call the constructor
+		Console.WriteLineI(Ford.model);
+	}
+}
+
+
+// in constructor overloading, only one constructor will run per object/instance
+// here, we use constructor chaining
+
+class Car3
+{
+	public string Color;
+	public int Year;
+
+	public Car3(): this("Red", 2026) // runs when no args is given - it means - if someone created a Car3 without providing arguments, it’ll forward that request to the more detailed constructor, using default values
+	{
+		// since no arguments were given, so there's no need to define anything here as we already have default values above - this body runs AFTER the other constructor
+	}
+
+	public Car3(string color): this(color, 2025) // runs when one arg is given
+	{
+	}
+
+	public Car3(string color, int year) // runs when two args is given 
+	{
+		Color = color;
+		Year = year;
+	}
+}
+

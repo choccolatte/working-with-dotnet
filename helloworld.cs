@@ -467,8 +467,9 @@ class Car3
 {
 	public string Color;
 	public int Year;
+	public string Brand;
 
-	public Car3(): this("Red", 2026) // runs when no args is given - it means - if someone created a Car3 without providing arguments, it’ll forward that request to the more detailed constructor, using default values
+	public Car3(): this("Red", 2026, "Toyota") // runs when no args is given - it means - if someone created a Car3 without providing arguments, it’ll forward that request to the more detailed constructor, using default values
 	{
 		// since no arguments were given, so there's no need to define anything here as we already have default values above - this body runs AFTER the other constructor
 	}
@@ -481,6 +482,22 @@ class Car3
 	{
 		Color = color;
 		Year = year;
+	}
+
+	public Car3(string color, int year, string brand)
+	{
+		Color = color;
+		Year = year;
+		Brand = brand;
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		Car3 nCar26 = new Car3();
+		Console.WriteLine(nCar26.Brand = "Ford");
 	}
 }
 

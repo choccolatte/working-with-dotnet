@@ -508,3 +508,35 @@ class Program
 // protected - theh code is accessible within the same class, or in a class that is inherited from that class. 
 // internal - the code is oinly accesible within its own assembly, but not from another assembly.
 
+
+// properties(get and set) - encapsulation
+// - encapsulation is hiding sensitive data from users.- 1st declare fields/methods as private, then provide public get and set methods, through properties, to access and upadte the value of a private field.
+
+class Person
+{
+	private string name; // field
+
+	public string Name // property - associated with the name field
+	{
+		get {return name;} // get method - returns the value of the variable name
+		set {name = value;} // set methods - assigns a value to the name variable. the value keyword here represents teh value we assign to the property.
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		Person myObj = new Person();
+		myObj.Name = "John";
+		Console.WriteLine(myObj.Name);
+	}
+}
+
+
+// shorthand - automatic properties
+
+class Person2
+{
+	public string Name{get; set;}
+}

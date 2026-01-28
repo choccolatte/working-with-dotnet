@@ -501,3 +501,10 @@ class Program
 	}
 }
 
+
+// access modifiers
+// public - teh ccode is acessible for all classes.
+// private - the code is not accessible within the same class.
+// protected - theh code is accessible within the same class, or in a class that is inherited from that class. 
+// internal - the code is oinly accesible within its own assembly, but not from another assembly.
+

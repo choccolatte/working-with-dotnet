@@ -12,6 +12,11 @@ class Program
 		else return "F";
 	}
 
+	// finding total number of student 
+	static int TotalStudents(List<int> students)
+	{
+		return students.Count;
+	}
 
 	static void Main(string[] args)
 	{
@@ -38,8 +43,14 @@ class Program
 		{
 			string grade = GetGrade(mark);
 			Console.WriteLine($"Mark: {mark}, Grade: {grade}");
-			gradeCounter[grade]++;
+			if(gradeCounter.ContainsKey(grade)){
+				gradeCounter[grade]++;
+			}
 		}
+
+		Console.WriteLine("\n---Total Students---");
+		int studentnum = TotalStudents(marks);
+		Console.WriteLine(studentnum);
 
 		Console.WriteLine("\n-----Grade Summary-----");
 		foreach(var kvp in gradeCounter)

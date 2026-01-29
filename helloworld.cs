@@ -516,11 +516,11 @@ class Person
 {
 	private string name; // field
 
-	public string Name // property - associated with the name field
-	{
-		get {return name;} // get method - returns the value of the variable name
-		set {name = value;} // set methods - assigns a value to the name variable. the value keyword here represents teh value we assign to the property.
-	}
+	public string Name{get; set;} // property - associated with the name field
+	// {
+	// 	get {return name;} // get method - returns the value of the variable name
+	// 	set {name = value;} // set methods - assigns a value to the name variable. the value keyword here represents teh value we assign to the property.
+	// }
 }
 
 class Program

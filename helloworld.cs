@@ -575,3 +575,121 @@ class Program
 	}
 }
 
+// sealed fields can't be accessed/used in derived classes
+
+// polymorphism - many forms - many functions/uses of the same method name by inheriting the base classes' method
+// single method different actions/uses - virtual keyword on parent, override keyword on child
+// why to use it? useful for code reusabilty. reuse fields and methods of an existing class when you create a new class
+
+class Animal
+{
+	public virtual void animalSound()
+	{
+		Console.WriteLine("Animal makes a sound.");
+	}
+}
+
+class Dog: Animal
+{
+	public override void animalSound()
+	{
+		Console.WriteLine("Woof woof!");
+	}
+}
+
+class Cat: Animal
+{
+	public override void animalSound()
+	{
+		Console.WriteLine("Meow!");
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		Animal myAnimal = new Animal(); // animal obj
+		Dog myDog = new Dog(); // dog obj
+		Cat myCat = new Cat(); // cat obj
+
+		myAnimal.animalSound();
+		myDog.animalSound();
+		myCat.animalSound();
+	}
+}
+
+
+// abstraction - hiding sensitive info from users by using abstract classes or interfaces - using abstract keyword on parent class and its fields nad methods where required
+// to achieve security - hide certain details and only show important details of the object, we use this feature.
+
+
+
+abstract class AnimalNew
+{
+	// abstract method
+	public abstract void AnimalSound();
+	
+	// regular method
+	public void Sleep()
+	{
+		Console.WriteLine("zzzzzzzzzzzzzzzzzzzz");
+	}
+}
+
+// derived class - inherited from AnimalNew
+class DogNew: AnimalNew
+{
+	public override void animalSound()
+	{
+		Console.WriteLine("Woof woof!");
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		AnimalNew myAnimal = new AnimalNew(); // animal obj - will generate error here as class is Abstract
+		DogNew myDogNew = new DogNew(); // dog obj
+
+		myDogNew.animalSound(); // calliog abstract method
+		myDogNew.Sleep(); // calling regular method
+	}
+}
+
+
+// interaces - abstraction can also be achieved using this
+// its a completely abstract class - which can only contain abstract methdos adn properties with empty bodies.
+// interfaces cant be used to create objects and they dont have a body - the body is provided by the "implement" class 
+// when implementing, all methods in the interface class muyst be overridden
+// they can only contain properties and methods, not fields and variables
+// they are by default, abstract and public
+// and they cant contain a constructor, as it cant be used to create objects. they are used to achieve security - hide certain details and only show important details of the object (interface)
+// C# doesnt support multiple inheritence, a class can only inherit from one base class, but it can be achieved with interfaces, because the class can implement multiple interfaces, just seperate them with a comma.
+
+// interface
+interface IAnimal
+{
+	void animalSound(); // interface methid without body
+	void run(); // interface method 
+}
+
+// dog implementing the IAnimal class
+class Dog : IAnimal
+{
+	public void animalSound()
+	{
+		// body of animalSound() is provided here, not in interface class
+		Console.WriteLine("Woof woof");
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		Dog myNewDog = new Dog();
+		myNewDog.animalSound();
+	}
+}

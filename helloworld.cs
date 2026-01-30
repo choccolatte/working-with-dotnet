@@ -693,3 +693,126 @@ class Program
 		myNewDog.animalSound();
 	}
 }
+
+
+// multiple interfaces
+// seperate the multiple interfaces with a comma
+
+interface IFirstInterface
+{
+	void myMethod();
+}
+
+interface ISecondInterface
+{
+	void myNewMethod();
+}
+
+// implementing multiple interfaces
+class DemoClass : IFirstInterface, ISecondInterface
+{
+	public void myMethod()
+	{
+		Console.WriteLine("Hello WOrld from 1.");
+	}
+
+	public void myNewMethod()
+	{
+		Console.WriteLine("Hello world from 2.");
+	}
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		DemoClass myObj = new DemoClass();
+		myObj.myMethod();
+		myObj.myNewMethod();
+	}
+}
+
+
+// enum - enumerate - specifically listed
+//a special class that represents a group of "Constants" unchangable, read-only variables.
+// create enum class using the enum keyword and seperate teh enum items with a comma
+// use enums when you have values that you know arent going to change, like months, days, colors, deck of cards, etc.
+
+enum Level
+{
+	Low,
+	Mid,
+	High
+}
+
+// accessing the enum items using dot operator
+Level myVar = Level.High;
+Console.WriteLine(mYVar);
+
+
+// enum inside a Class
+class Program
+{
+	enum Level
+	{
+		Low,
+		Mid,
+		High
+	}
+
+	static  void Main(string[] args)
+	{
+		Level myVar = Level.Low;
+		Console.WriteLine(myVar);
+	}
+}
+
+
+// enum values
+enum Months
+{
+	Jan,
+	Feb, 
+	March,
+	April,
+	May,
+	June,
+	July,
+	Aug,
+	Sept,
+	Oct,
+	Nov,
+	Dec
+}
+
+static void Main(string[] args)
+{
+	int myNum = (int) Months.Dec;
+	Console.WriteLine(myNum);
+}
+
+
+// enum in switch statement
+enum Level
+{
+	Low,
+	Mid,
+	High
+}
+
+static void Main(string[] args)
+{
+	Level mYVar = Level.High;
+	switch (mYVar)
+	{
+		case Level.Low:
+			Console.WriteLine("Low Level");
+			break;
+		case Level.Mid:
+			Console.WriteLine("Mid level");
+			break;
+		case Level.High:
+			Console.WriteLine("Hi level");
+			break;
+	}
+}

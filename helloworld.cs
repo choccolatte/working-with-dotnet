@@ -540,3 +540,38 @@ class Person2
 {
 	public string Name{get; set;}
 }
+
+
+// inheritance - derived(child class) and base class(parent class)
+// inheriting a class
+
+class Vehicle // base class
+{
+	public string brand = "Ford";
+	
+	public void honk()
+	{
+		Console.WriteLine("toot tooooot!!!");
+	}
+}
+
+class Car: Vehicle // derived class
+{
+	public string modelName = "Mustang"; // car field
+}
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		// create a myCar obj
+		Car myCar = new Car();
+
+		// call the base class's honk method on myCar obj
+		myCar.honk();
+
+		// display the value of the brand field and teh value of modelName from Car class
+		Console.WriteLine(myCar.brand + " " + myCar.modelName);
+	}
+}
+

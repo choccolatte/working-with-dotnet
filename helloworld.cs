@@ -816,3 +816,29 @@ static void Main(string[] args)
 			break;
 	}
 }
+
+// enum Levels
+// {
+// 	Lo,
+// 	Mid,
+// 	Hi
+// }
+
+
+// Files - file class from System.IO namespace, allows to work with files.
+// many file class useful methods for creating and getting info about files.
+// AppendText(), Copy(), Create(), Delete(), Exists(), ReadAllText(), Replace(), WriteAllText() - all these IO methods do what they portray.
+
+
+// using System.IO;
+File.SomeFileMethod(); // using the file clas with method
+
+
+// writing to a file and reading it
+// using System.IO;
+
+string writeText = "Hello World!"; // creating a text string 
+File.WriteAllText("filename.txt", writeText); // create a file and write the content or writeText to it
+
+string readText = File.ReadAllText("filename.text"); // read teh contents of the file
+Console.WriteText(readText); // outputs teh content

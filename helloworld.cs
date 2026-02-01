@@ -842,3 +842,106 @@ File.WriteAllText("filename.txt", writeText); // create a file and write the con
 
 string readText = File.ReadAllText("filename.text"); // read teh contents of the file
 Console.WriteText(readText); // outputs teh content
+
+
+// Exceptions - coding error are exceptions only
+// try, catch, finally keywords
+// try - allows you to define a block of code to be tested while it is being executed.
+// catch - allows you to define a block of code to be executed, if an error occurs in the try block. - will only run if there's an error in teh try block, else it wont run.
+// finally - lets you execute teh code, after try...catch, regardless of the result.
+
+// e - exception - has a Message property that throws the message to you in case of errors.
+
+try
+{
+	// block of code to try
+}
+catch
+{
+	// block of code to handle errors
+}
+
+try{
+	int[] nums = {1, 2, 3};
+	Console.WriteLine(nums[5]);
+} 
+catch (Exception e)
+{
+	Console.WriteLine(e.Message);
+}
+finally
+{
+	Console.WriteLine("the try-catch is finished!");
+}
+
+
+// throw keyword - allows you to create a custom error. it is used with an exception class like ArithmeticException, TimeOutException, etc.
+
+static void checkAge(int age)
+{
+	if(age < 18)
+	{
+		throw new ArithmeticException("Access denied. Must be at least 18 to enter.");
+	}
+	else return "Access granted. Enjoy ur stay.";
+}
+
+static void Main(string[] args)
+{
+	checkAge(15);
+}
+
+
+using System;
+using System.Collections.Generic;
+
+class Grade
+{
+	static string GetGrade(int marks)
+	{
+		if (marks > 90) return "A+";
+		else if (marks >= 80) return "A";
+		else if (marks >= 65) return "B";
+		else if (marks >= 55) return "C";
+		else if (marks >= 40) return "D";
+		else return "F";
+	}
+
+	static void PrintStudentResult(int mark)
+	{
+		string gotGrade = GetGrade(mark);
+		Console.WriteLine($"Mark: {mark}, Grade: {gotGrade}");
+	}
+
+	static int TotalStudents(int students)
+	{
+		students.Count;
+	}
+
+	static bool IsPassing(int mark)
+	{
+		return mark >= 40;
+	}
+
+	static void Main(string[] args)
+	{
+
+		List<int> marks = new List<int>(){23, 34, 45, 56, 67, 78, 89, 99, 100};
+
+		foreach(int mark in marks){
+			PrintStudentResult(mark);
+
+			if (IsPassing(mark)) Console.WriteLine("Pass");
+			else Console.WriteLine("Fail");
+		};
+	}
+	}
+}
+
+
+
+static void PrintStudGrade(int mark){
+	string gotGrade = GetGrade(mark);
+	Console.WriteLine(gotGrade);
+}
+

@@ -18,6 +18,12 @@ class Program
 		return students.Count;
 	}
 
+	// pass or fail
+	static bool IsPassed(int mark)
+	{
+		return mark <= 40;
+	}
+
 	// pass/fail counter
 	static int PassStudents(List<int> marks)
 	{
@@ -69,8 +75,11 @@ class Program
 
 		foreach(int mark in marks)
 		{
+			bool passedOrNot = IsPassed(mark);
 			string grade = GetGrade(mark);
-			Console.WriteLine($"Mark: {mark}, Grade: {grade}");
+
+			Console.WriteLine($"Mark: {mark}, Grade: {grade}, Status: {(passedOrNot? "Pass" : "Fail")}");
+			
 			if(gradeCounter.ContainsKey(grade)){
 				gradeCounter[grade]++;
 			}

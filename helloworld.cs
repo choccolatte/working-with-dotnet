@@ -945,3 +945,51 @@ static void PrintStudGrade(int mark){
 	Console.WriteLine(gotGrade);
 }
 
+
+// get grade
+static string GetGradeNew(int marks)
+{
+	if (marks >= 90) return "A+";
+	else if (marks >= 80) return "A";
+	else if (marks >= 65) return "B";
+	else if (marks >= 55) return "C";
+	else if (marks >= 40) return "D";
+	else return "F";
+}
+
+// student passed or not
+static bool IsPassed(int mark)
+{
+	return mark >= 40;
+}
+
+// process the students marks
+static void ProcessStudents(List<int> marks)
+{
+	// counters
+	int passCount = 0;
+	int failCount = 0;
+
+	foreach(int mark in marks)
+	{
+		string grade = GetGrade(mark);
+		bool passed = IsPassed(mark);
+
+		Console.WriteLine($"Mark: {mark}, Grade: {grade}, Status: {(passed ? "Pass" : "Fail")}");
+
+		if(passed) passCount++;
+		else failCount++;
+	}
+
+	Console.WriteLine("\n---Summary---");
+	Console.WriteLine($"Passed: {passCount}");
+	Console.WriteLine($"Failed: {failCount}");
+}
+
+static void Main(string[] args)
+{
+
+
+	ProcessStudents(marks);
+}
+

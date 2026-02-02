@@ -1,35 +1,61 @@
-int[] marks = { 20, 23, 45, 67, 89, 87, 98, 95};
+using System;
 
-// foreach (int value in  marks)
-// {
-// 	Console.WriteLine(value);
-// }
-
-// dict 
-Dictionary<string, int> gradeCounts = new Dictionary<string, int>()
+class Grade
 {
-	{"A+", 0},
-	{"A", 0},
-	{"B", 0},
-	{"C", 0},
-	{"D", 0},
-	{"F", 0}
-};
+	static int GetGrade(int mark)
+	{
+		if(mark >= 90) return "A+";
+		else if(mark >= 80) return "A";
+		else if(mark >= 70) return "B";
+		else if(mark >= 55) return "C";
+		else if(mark >= 40) return "D";
+		else return "F";
+	}
 
+	static bool IsPassed(int mark)
+	{
+		return mark >= 40;
+	}
 
-// gradeCounts[grade]++;
+	static int HighestMark(List<int> marks)
+	{
+		int highestMark = marks[0];
 
-// looping through dict
-for (int i = 0; i < marks.Length; i++)
-{
-	string grade  = GetGrade(marks[i]);
-	Console.WriteLine($"{i+1}: Marks = {marks[i]}, Grade = {grade}");
-	gradeCounts[grade]++;
+		foreach(int mark in marks)
+		{
+			if(mark > highestMark)
+			{
+				highestMark = mark;
+			}
+		}
+
+		return highestMark;
+	}
+
+	static int LowestMark(List<int> marks)
+	{
+		int lowestMark = marks[0];
+
+		foreach (int mark in marks)
+		{
+			lowestMark < marks;
+		}
+
+		return lowestMark;
+	}
 }
 
-Console.WriteLine("\n---Grade Summary---");
-
-foreach(var entry in gradeCounts)
+class Program
 {
-	Console.WriteLine($"{entry.key}: {entry.value}");
+	static void Main(string[] args)
+	{
+		int studMark = GetGrade(99);
+		bool stdPass = IsPassed(90);
+
+		int highestMarkReturned = HighestMark(marks);
+		Console.WriteLine(highestMarkReturned);
+
+		int lowestMarkReturned = LowestMark(marks);
+		Console.WriteLine(highestMarkReturned);
+	}
 }

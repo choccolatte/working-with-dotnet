@@ -47,6 +47,40 @@ class Program
 		return failcount;
 	}
 
+	// highest mark in list
+	static int HighestMark(List<int> marks)
+	{
+		int highestMark = marks[0];
+
+		foreach(int mark in marks)
+		{
+			if(mark > highestMark)
+			{
+				highestMark = mark;
+			}
+		}
+
+		return highestMark;
+	}
+
+	// lowest mark in list
+
+	static int LowestMark(List<int> marks)
+	{
+		int lowestMark = marks[0];
+
+		foreach (int mark in marks)
+		{
+			if(mark < lowestMark) {
+				lowestMark = mark;
+			};
+		}
+
+		return lowestMark;
+	}
+
+	// Main method starts here
+
 	static void Main(string[] args)
 	{
 		
@@ -62,10 +96,14 @@ class Program
 
 		List<int> marks = new List<int>()
 		{
-			20, 30, 40, 56, 67, 78, 89, 90, 12, 23, 34, 54, 76, 87, 89, 100
+			20, 30, 40, 56, 2, 67, 78, 89, 90, 12, 23, 34, 54, 76, 87, 89, 100
 		};
 
 		marks.Add(99);
+
+		// highest and lowest variables method call
+		int highestStudentMark = HighestMark(marks);
+		int lowestStudentMark = LowestMark(marks);
 
 		// declaring pass/fail variables
 		int passStudentsNumber = PassStudents(marks);
@@ -84,6 +122,10 @@ class Program
 				gradeCounter[grade]++;
 			}
 		}
+
+		// highest and lowest marks in class
+		Console.WriteLine($"Highest marks in class: {highestStudentMark}");
+		Console.WriteLine($"Lowest marks in class: {lowestStudentMark}");
 
 		Console.WriteLine("\n---Total Students---");
 		int studentnum = TotalStudents(marks);

@@ -50,8 +50,11 @@ class Program
 	// highest mark in list
 	static int HighestMark(List<int> marks)
 	{
-		int highestMark = marks[0];
+		// in case the marks list is empty or null
+		if(marks == null || marks.Count == 0) throw new ArgumentException("Marks list cannot be empty.");
 
+		int highestMark = marks[0];
+		
 		foreach(int mark in marks)
 		{
 			if(mark > highestMark)
@@ -64,9 +67,11 @@ class Program
 	}
 
 	// lowest mark in list
-
 	static int LowestMark(List<int> marks)
 	{
+		// in case the marks list is empty or null
+		if(marks == null || marks.Count == 0) throw new ArgumentException("Marks list cannot be empty.");
+
 		int lowestMark = marks[0];
 
 		foreach (int mark in marks)
@@ -77,6 +82,24 @@ class Program
 		}
 
 		return lowestMark;
+	}
+
+	// average marks of the list
+	double AverageMarks(List<int> marks)
+	{
+		if(marks == null || marks.Count ==0) throw new ArgumentException("Marks List cannot be empty.");
+
+		int totalMarks = 0;
+		// double avgMarks; 
+
+		foreach(int mark in marks)
+		{
+			totalMarks += mark;
+		}
+		
+		return (double)totalMarks/marks.Count;
+
+		// return avgMarks;
 	}
 
 	// Main method starts here

@@ -43,6 +43,23 @@ class Grade
 
 		return lowestMark;
 	}
+
+	 double AverageMarks(List<int> marks)
+	{
+		if(marks == null || marks.Count ==0) throw new ArithmeticException("List must not be empty.");
+
+		int totalMarks = 0;
+		double avgMarks; 
+
+		foreach(int mark in marks)
+		{
+			totalMarks += mark;
+		}
+		
+		avgMarks = (totalMarks/marks.Count);
+
+		return avgMarks;
+	}
 }
 
 class Program

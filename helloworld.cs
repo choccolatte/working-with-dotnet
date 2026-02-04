@@ -738,6 +738,8 @@ class Program
 // create enum class using the enum keyword and seperate teh enum items with a comma
 // use enums when you have values that you know arent going to change, like months, days, colors, deck of cards, etc.
 
+// enums are fixed set of allowed values, checked by the compiler, and are self documenting - you just need to define it once outside Main()
+
 enum Level
 {
 	Low,
@@ -994,4 +996,4 @@ static void Main(string[] args)
 }
 
 
-
+// playng with enums 

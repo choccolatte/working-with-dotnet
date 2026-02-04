@@ -2,14 +2,26 @@ using System;
 using System.Collections.Generic;
 class Program
 {
-	static string GetGrade(int marks)
+	// now, this method returns a Grade instead of string
+	static Grade GetGrade(int marks)
 	{
-		if (marks >= 95) return "A+";
-		else if (marks >= 85) return "A";
-		else if (marks >= 70) return "B";
-		else if (marks >= 55) return "C";
-		else if (marks >= 40) return "D";
-		else return "F";
+		if (marks >= 95) return Grade.Aplus;
+		else if (marks >= 85) return Grade.A;
+		else if (marks >= 70) return Grade.B;
+		else if (marks >= 55) return Grade.C;
+		else if (marks >= 40) return Grade.D;
+		else return Grade.F;
+	}
+
+	// defining grades in enum - CONSTANTS
+	// why enums? “Enums make the code safer and more maintainable by restricting values at compile time and eliminating magic strings.”
+	enum Grade{
+		Aplus,
+		A,
+		B,
+		C,
+		D,
+		F
 	}
 
 	// finding total number of student 
@@ -102,20 +114,38 @@ class Program
 		// return avgMarks;
 	}
 
+	// Grade counter method
+	static Dictionary<Grade, int> GradeCounter(List<int> marks)
+	{
+		if(marks == null || marks.Count == 0)
+		{
+			throw new ArgumentException("List cannot be empty. Enter valid list of marks.");
+		}
+
+		Dictionary<Grade, int> gradeCounter = new Dictionary<Grade, int>()
+        {
+            { Grade.Aplus, 0 },
+            { Grade.A, 0 },
+            { Grade.B, 0 },
+            { Grade.C, 0 },
+            { Grade.D, 0 },
+            { Grade.F, 0 }
+        };
+
+		foreach(var mark in marks)
+		{
+			Grade grade = GetGrade(mark);
+			gradeCounter[grade]++;
+		}
+
+		// returns a dictionary
+		return gradeCounter;
+	}
+
 	// Print Student Result method 
 	static void PrintStudentResult(List<int> marks)
 	{
 		
-		Dictionary<string, int> gradeCounter = new Dictionary<string, int>()
-        {
-            { "A+", 0 },
-            { "A", 0 },
-            { "B", 0 },
-            { "C", 0 },
-            { "D", 0 },
-            { "F", 0 }
-        };
-
 		// what if list is empty
 		if(marks == null || marks.Count == 0)
 		{
@@ -125,16 +155,10 @@ class Program
 		Console.WriteLine("\n-----Summary-----");
 		foreach(var mark in marks)
 		{
-			string grade = GetGrade(mark);
+			Grade grade = GetGrade(mark);
 			string result = IsPassed(mark)? "Pass":"Fail";
 
 			Console.WriteLine($"Marks: {mark}, Grade: {grade}, Result: {result}");
-
-			// incrementing gradecounter
-			if (gradeCounter.ContainsKey(grade))
-			{
-				gradeCounter[grade]++;
-			}
 		}
 	}
 
@@ -198,9 +222,25 @@ class Program
 		};
 
 		marks.Add(99);
+		marks.Add(9);
+		marks.Add(95);
+		marks.Add(19);
+		marks.Add(49);
 
-		PrintSummary(marks);
 		PrintStudentResult(marks);
+		PrintSummary(marks);
+
+		// calling dictionary method
+		Dictionary<Grade, int> gradeSummmary = GradeCounter(marks);
+
+		// printing dictionary
+		Console.WriteLine("\n-----Grade Distribution-----");
+		foreach(var kvp in gradeSummmary)
+		{
+			Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+		}
+
+		Console.WriteLine("\nProgram finished successfully!");
 
 		// highest and lowest variables method call
 		// int highestStudentMark = HighestMark(marks);

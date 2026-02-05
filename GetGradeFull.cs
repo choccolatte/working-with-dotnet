@@ -5,7 +5,7 @@ class Program
 	// now, this method returns a Grade instead of string
 	static Grade GetGrade(int marks)
 	{
-		if (marks >= 95) return Grade.Aplus;
+		if (marks >= 95) return Grade.APlus;
 		else if (marks >= 85) return Grade.A;
 		else if (marks >= 70) return Grade.B;
 		else if (marks >= 55) return Grade.C;
@@ -16,7 +16,7 @@ class Program
 	// defining grades in enum - CONSTANTS
 	// why enums? “Enums make the code safer and more maintainable by restricting values at compile time and eliminating magic strings.”
 	enum Grade{
-		Aplus,
+		APlus,
 		A,
 		B,
 		C,
@@ -122,15 +122,17 @@ class Program
 			throw new ArgumentException("List cannot be empty. Enter valid list of marks.");
 		}
 
-		Dictionary<Grade, int> gradeCounter = new Dictionary<Grade, int>()
-        {
-            { Grade.Aplus, 0 },
-            { Grade.A, 0 },
-            { Grade.B, 0 },
-            { Grade.C, 0 },
-            { Grade.D, 0 },
-            { Grade.F, 0 }
-        };
+		Dictionary<Grade, int> gradeCounter = Enum.GetValues<Grade>().ToDictionary(global => global, global => 0);
+		
+		// new Dictionary<Grade, int>()
+        // {
+        //     { Grade.APlus, 0 },
+        //     { Grade.A, 0 },
+        //     { Grade.B, 0 },
+        //     { Grade.C, 0 },
+        //     { Grade.D, 0 },
+        //     { Grade.F, 0 }
+        // };
 
 		foreach(var mark in marks)
 		{

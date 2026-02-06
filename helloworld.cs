@@ -995,5 +995,39 @@ static void Main(string[] args)
 	ProcessStudents(marks);
 }
 
+// enums - move the errors from runtime to compile time. Using emum, compiler protects you, refactoring is safe, and code is self documenting. Using enums instead of strings, we avoid magic values, enforce valid states, and make refactoring safer.
+// enums prevents invalid values, reduce bugs, and makes the code safer and more maintainable.
 
-// playng with enums 
+// LINQ - is a way to say what you want, not how to loop.
+// so, instead of saying - Start a loop, check each item, count manually...., you just say, give me all items that matches this condition. The looping will still happen, you just dont write it manually. Its like a readymade loop method.
+
+// manual way to do this
+int passCount = 0;
+foreach(int mark in marks)
+{
+	if(mark >= 40)
+	{
+		passCount++;
+	}
+}
+
+// same logic, now using LINQ
+int passCount = marks.Count(markList => markList >= 40);
+
+// here, marks.Count(...) - counts the items in the list
+// m => m >= 40 - is the condition for counting. M is the local variable like we used mark in foreach - mark in marks.
+// the condition we wrote using m is called a predicate ( a condition that returns true/false).
+
+// Average using manual method
+double avg = TotalStudents / marks.Count;
+
+// average using LINQ
+double avg = marks.Average();
+
+// highest and lowest using LINQ
+int hightest = marks.Max();
+int lowest = marks.Min();
+
+// LINQ makes the code cleaner, not just shorter. Its refine code, not replaces your manual code - thats still works.
+
+

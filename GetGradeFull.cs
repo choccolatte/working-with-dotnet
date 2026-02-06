@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.LINQ;
+
 class Program
 {
 	// now, this method returns a Grade instead of string
@@ -65,17 +67,20 @@ class Program
 		// in case the marks list is empty or null
 		if(marks == null || marks.Count == 0) throw new ArgumentException("Marks list cannot be empty.");
 
-		int highestMark = marks[0];
+		// int highestMark = marks[0];
 		
-		foreach(int mark in marks)
-		{
-			if(mark > highestMark)
-			{
-				highestMark = mark;
-			}
-		}
+		// foreach(int mark in marks)
+		// {
+		// 	if(mark > highestMark)
+		// 	{
+		// 		highestMark = mark;
+		// 	}
+		// }
 
-		return highestMark;
+		// return highestMark;
+
+		// refactoring using LINQ
+		return marks.Max();
 	}
 
 	// lowest mark in list
@@ -84,16 +89,19 @@ class Program
 		// in case the marks list is empty or null
 		if(marks == null || marks.Count == 0) throw new ArgumentException("Marks list cannot be empty.");
 
-		int lowestMark = marks[0];
+		// int lowestMark = marks[0];
 
-		foreach (int mark in marks)
-		{
-			if(mark < lowestMark) {
-				lowestMark = mark;
-			};
-		}
+		// foreach (int mark in marks)
+		// {
+		// 	if(mark < lowestMark) {
+		// 		lowestMark = mark;
+		// 	};
+		// }
 
-		return lowestMark;
+		// return lowestMark;
+
+		// refactoring using LINQ
+		return marks.Min();
 	}
 
 	// average marks of the list
@@ -101,15 +109,19 @@ class Program
 	{
 		if(marks == null || marks.Count ==0) throw new ArgumentException("Marks List cannot be empty.");
 
-		int totalMarks = 0;
-		// double avgMarks; 
-
-		foreach(int mark in marks)
-		{
-			totalMarks += mark;
-		}
+		// refactoring loop using LINQ
+		// int total = marks.Sum();
 		
-		return (double)totalMarks/marks.Count;
+		// int totalMarks = 0;
+		// // double avgMarks; 
+
+		// foreach(int mark in marks)
+		// {
+		// 	totalMarks += mark;
+		// }
+		
+		// return (double)totalMarks/marks.Count;
+		return marks.Average();
 
 		// return avgMarks;
 	}
@@ -122,7 +134,8 @@ class Program
 			throw new ArgumentException("List cannot be empty. Enter valid list of marks.");
 		}
 
-		Dictionary<Grade, int> gradeCounter = Enum.GetValues<Grade>().ToDictionary(global => global, global => 0);
+		// take each value of Enum, convert them into keys, and initialize their values as 0.
+		Dictionary<Grade, int> gradeCounter = Enum.GetValues(typeof(Grade)).Cast<Grade>().ToDictionary(g => g, g => 0);
 		
 		// new Dictionary<Grade, int>()
         // {
@@ -282,6 +295,6 @@ class Program
 // 		foreach(var kvp in gradeCounter)
 // 		{
 // 			Console.WriteLine($"{kvp.Key}: {kvp.Value}");
-// 		}
+// 		}Enum
 	}
 }

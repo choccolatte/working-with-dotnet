@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.LINQ;
+using System.Linq;
 
 class Program
 {
@@ -41,22 +41,38 @@ class Program
 	// pass/fail counter
 	static int PassStudents(List<int> marks)
 	{
-		int passcount = 0;
-
-		foreach(int mark in marks){
-			if(mark >= 40) passcount++;		
+		// checking for empty list
+		if(marks == null || marks.Count == 0){
+			throw new ArgumentException("List should not be empty.");
 		}
 
+		// using LINQ instead of foreach loop
+		int passcount = marks.Count(m => m >= 40);
+
+// 		// now for fail number
+// 		int failcount = marks.Count(m => m < 40);
+
 		return passcount;
+		
+		// int passcount = 0;
+
+		// foreach(int mark in marks){
+		// 	if(mark >= 40) passcount++;		
+		// }
+
+		// return passcount;
 	}
 
 	static int FailStudents(List<int> marks)
 	{
-		int failcount = 0;
+		// using LINQ instead of foreach loop - here, we are counting how many marks satisfy the condition m < 40
+		int failcount = marks.Count(m => m < 40);
+		
+		// int failcount = 0;
 
-		foreach(int mark in marks){
-			if(mark < 40) failcount++;			
-		}
+		// foreach(int mark in marks){
+		// 	if(mark < 40) failcount++;			
+		// }
 
 		return failcount;
 	}
@@ -126,7 +142,7 @@ class Program
 		// return avgMarks;
 	}
 
-	// Grade counter method
+	// Grade counter method. Here, the pipeline is - marks -> grades -> grouped grades -> dictionary
 	static Dictionary<Grade, int> GradeCounter(List<int> marks)
 	{
 		if(marks == null || marks.Count == 0)
@@ -168,13 +184,25 @@ class Program
 		}
 
 		Console.WriteLine("\n-----Summary-----");
-		foreach(var mark in marks)
-		{
-			Grade grade = GetGrade(mark);
-			string result = IsPassed(mark)? "Pass":"Fail";
 
-			Console.WriteLine($"Marks: {mark}, Grade: {grade}, Result: {result}");
+		// refactoring using LINQ
+		var summaries = marks.Select(mark => new{
+			Mark = mark,
+			Grade = GetGrade(mark),
+			Passed = IsPassed(mark)
+		});
+
+		foreach(var s in summaries){
+			Console.WriteLine($"Marks: {s.Mark}, Grade: {s.Grade}, Result: {(s.Passed ? "Pass" : "Fail")}");
 		}
+
+		// foreach(var mark in marks)
+		// {
+		// 	Grade grade = GetGrade(mark);
+		// 	string result = IsPassed(mark)? "Pass":"Fail";
+
+		// 	Console.WriteLine($"Marks: {mark}, Grade: {grade}, Result: {result}");
+		// }
 	}
 
 	// print summary method

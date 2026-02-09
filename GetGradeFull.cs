@@ -244,6 +244,20 @@ class Program
 		// printed already above
 	}
 
+	// grade distribution of students
+	static void GradeDistribution(List<int> marks)
+	{
+		// calling dictionary method
+		Dictionary<Grade, int> gradeSummmary = GradeCounter(marks);
+
+		// printing dictionary
+		Console.WriteLine("\n-----Grade Distribution-----");
+		foreach(var kvp in gradeSummmary)
+		{
+			Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+		}
+	}
+
 
 	// Main method starts here
 	static void Main(string[] args)
@@ -272,16 +286,7 @@ class Program
 
 		PrintStudentResult(marks);
 		PrintSummary(marks);
-
-		// calling dictionary method
-		Dictionary<Grade, int> gradeSummmary = GradeCounter(marks);
-
-		// printing dictionary
-		Console.WriteLine("\n-----Grade Distribution-----");
-		foreach(var kvp in gradeSummmary)
-		{
-			Console.WriteLine($"{kvp.Key}: {kvp.Value}");
-		}
+		GradeDistribution(marks);
 
 		Console.WriteLine("\nProgram finished successfully!");
 

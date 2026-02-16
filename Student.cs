@@ -12,6 +12,12 @@ class Student
 
 	public Student(int id, string name, int marks)
 	{
+		// protecting student from negative or wrong markings.
+		if(marks < 0 || marks > 100)
+		{
+			throw new ArgumentException("Marks must be between 0 and 100.");
+		}
+
 		Id = id;
 		Name = name;
 		Marks = marks;

@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 public class Classroom
 {
+	private readonly List<Studeent> student;
 	public List<Student> students;
 
 	public Classroom(List<Student> students)
